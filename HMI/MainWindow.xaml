@@ -1,0 +1,76 @@
+﻿<Window x:Class="HMI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HMI"
+        mc:Ignorable="d"
+        Title="StatistiquE10" Height="450" Width="800">
+    <TabControl TabStripPlacement="Left">
+        <TabItem x:Name="Accueil">
+            <TabItem.Header>
+                <Image Source="images/accueilHeader.png" Height="27" Width="103"/>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+
+                <ScrollViewer  Grid.Row="1" Grid.Column="1">
+                    <ListView x:Name="ListeUsagersPrésents"/>
+                </ScrollViewer>
+            </Grid>
+        </TabItem>
+
+        <TabItem x:Name="Usagers">
+            <TabItem.Header>
+                <Image Source="images/usagerHeader.png" Height="27" Width="103"/>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="AjouterUsager" Content="Admission d'usagers" Style="{DynamicResource CustomButton}" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="160"/>
+                <Button x:Name="SupprimerUsager" Content="Départ d'usagers" Style="{DynamicResource CustomButton}" Grid.Row="0" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="160"/>
+                <Button x:Name="ModifierUsager" Content="Modification d'usagers" Style="{DynamicResource CustomButton}" Grid.Row="0"  Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="160"/>
+                <Button x:Name="RechercherUsager" Content="Recherche d'usagers" Style="{DynamicResource CustomButton}" Grid.Row="0"  Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="160"/>
+                <ScrollViewer  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                    <ListView x:Name="ListeUsagers"/>
+                </ScrollViewer>
+            </Grid>
+        </TabItem>
+
+        <TabItem x:Name="Graph">
+            <TabItem.Header>
+                <Image Source="images/graphiquesHeader.png" Height="27" Width="103"/>
+            </TabItem.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Image x:Name="graphiqueAleatoire1" Grid.Row="0" Grid.Column="0"/>
+                <Image x:Name="graphiqueAleatoire2" Grid.Row="0" Grid.Column="1"/>
+                <Image x:Name="graphiqueAleatoire3" Grid.Row="1" Grid.Column="1"/>
+                <Button x:Name="CreerGraphique" Content="Générer un graphique" Style="{DynamicResource CustomButton}" Grid.Row="1" Click="CreerGraphique_Click" VerticalAlignment="Center" HorizontalAlignment="Center" Width="160"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

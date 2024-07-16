@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\accueil.jpg" />
+    <None Remove="images\accueilHeader.png" />
+    <None Remove="images\graphiquesHeader.png" />
+    <None Remove="images\usagerHeader.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\accueil.jpg" />
+    <Resource Include="images\accueilHeader.png" />
+    <Resource Include="images\graphiquesHeader.png" />
+    <Resource Include="images\usagerHeader.png" />
+  </ItemGroup>
+
+</Project>
