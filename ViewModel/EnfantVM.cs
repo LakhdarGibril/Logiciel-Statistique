@@ -7,11 +7,10 @@ namespace ViewModel
     /// Représente une vue model pour la classe Enfant
     /// </summary>
     /// <author>Lakhdar Gibril</author>
-    public class EnfantVM : INotifyPropertyChanged
+    public class EnfantVM : BaseVM
     {
         #region --------- Attributs ---------
         private Enfant model;
-        public event PropertyChangedEventHandler? PropertyChanged;
         #endregion
 
         #region --------- Propriétés ---------
@@ -37,7 +36,7 @@ namespace ViewModel
             set
             {
                 this.model.Nom = value;
-                NotifyPropertyChanged("Nom");
+                this.NotifyPropertyChanged("Nom");
             }
         }
 
@@ -51,7 +50,7 @@ namespace ViewModel
             set
             {
                 this.model.Prenom = value;
-                NotifyPropertyChanged("Prenom");
+                this.NotifyPropertyChanged("Prenom");
             }
         }
 
@@ -65,7 +64,7 @@ namespace ViewModel
             set
             {
                 this.model.Age = value;
-                NotifyPropertyChanged("Age");
+                this.NotifyPropertyChanged("Age");
             }
         }
         #endregion
@@ -79,13 +78,6 @@ namespace ViewModel
         public EnfantVM(Enfant model)
         {
             this.model = model;
-        }
-        #endregion
-
-        #region --------- Observateur ---------
-        protected void NotifyPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
         #endregion
     }
