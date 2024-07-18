@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{72FCE068-6D09-4C7F-AD25-5F960077D993}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "UnitTest\UnitTest.csproj", "{72FCE068-6D09-4C7F-AD25-5F960077D993}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMI", "HMI\HMI.csproj", "{67B570CA-157C-4AC6-AA19-813CC025EBD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HMI", "HMI\HMI.csproj", "{67B570CA-157C-4AC6-AA19-813CC025EBD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{870E6226-A86F-41C5-B2AD-A5BFD1B32447}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{870E6226-A86F-41C5-B2AD-A5BFD1B32447}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{00204B2D-9B24-431F-BCA5-B83B60BEC5A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModel", "ViewModel\ViewModel.csproj", "{00204B2D-9B24-431F-BCA5-B83B60BEC5A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Network", "Network\Network.csproj", "{4DFCAA0D-5A5B-4A38-A2E9-885A33ABFB3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Network", "Network\Network.csproj", "{4DFCAA0D-5A5B-4A38-A2E9-885A33ABFB3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions", "Exceptions\Exceptions.csproj", "{F3DAE79E-D3DA-4408-9EFF-8B5D85EFF151}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{4DFCAA0D-5A5B-4A38-A2E9-885A33ABFB3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DFCAA0D-5A5B-4A38-A2E9-885A33ABFB3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DFCAA0D-5A5B-4A38-A2E9-885A33ABFB3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3DAE79E-D3DA-4408-9EFF-8B5D85EFF151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3DAE79E-D3DA-4408-9EFF-8B5D85EFF151}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3DAE79E-D3DA-4408-9EFF-8B5D85EFF151}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3DAE79E-D3DA-4408-9EFF-8B5D85EFF151}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

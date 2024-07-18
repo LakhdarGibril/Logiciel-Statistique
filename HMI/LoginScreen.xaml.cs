@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Exceptions;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +22,13 @@ namespace HMI
     public partial class LoginScreen : Window
     {
         #region --------- Attributs ---------
-        private Utilisateur utilisateur;
+        private Utilisateur? utilisateur;
         #endregion 
 
         #region --------- Constructeur ---------
         public LoginScreen()
         {
             InitializeComponent();
-            this.utilisateur = new Utilisateur("", "");
         }
         #endregion
 
@@ -51,10 +51,22 @@ namespace HMI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.utilisateur.NomUtilisateur = this.usernameTextBox.Text;
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
+            try
+            {
+                if (this.usernameTextBox.Text.Contains("Nom d'utilisateur")) throw new ConnexionException("Aucun identifiant de connexion n'a été entré.");
+                else
+                {
+                    this.utilisateur = new Utilisateur(this.usernameTextBox.Text);
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                }
+                
+            }
+            catch (Exception exception) 
+            {
+                MessageBox.Show(exception.Message, "Erreur utilisateur", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
         }
         #endregion
     }

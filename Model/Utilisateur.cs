@@ -34,7 +34,7 @@ namespace Model
         /// <param name="motDePasse">le mot de passe saisie (chaîne de caractère)</param>
         /// <param name="idUtilisateur">identifiant de l'utilisateur</param>
         /// <author>Lakhdar Gibril</author>
-        public Utilisateur(string nomUtilisateur, string motDePasse, int idUtilisateur = 0)
+        public Utilisateur(string nomUtilisateur, int idUtilisateur = 0)
         {
             this.idUtilisateur = idUtilisateur;
             this.nomUtilisateur = nomUtilisateur;
