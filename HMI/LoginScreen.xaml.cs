@@ -1,5 +1,6 @@
 ﻿using Exceptions;
 using Model;
+using Network;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,14 @@ namespace HMI
     {
         #region --------- Attributs ---------
         private Utilisateur? utilisateur;
+        private IUtilisateurDao utilisateurDao;
         #endregion 
 
         #region --------- Constructeur ---------
         public LoginScreen()
         {
             InitializeComponent();
+            this.utilisateurDao = new UtilisateurDao();
         }
         #endregion
 
@@ -56,16 +59,20 @@ namespace HMI
                 if (this.usernameTextBox.Text.Contains("Nom d'utilisateur")) throw new ConnexionException("Aucun identifiant de connexion n'a été entré.");
                 else
                 {
-                    this.utilisateur = new Utilisateur(this.usernameTextBox.Text);
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
-                    this.Close();
+                    this.utilisateur = this.utilisateurDao.AvoirUtilisateur(this.usernameTextBox.Text);
+                    if (this.utilisateur == null) throw new ConnexionException("Utilisateur non existant");
+                    else
+                    {
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.Show();
+                        this.Close();
+                    }
                 }
                 
             }
             catch (Exception exception) 
             {
-                MessageBox.Show(exception.Message, "Erreur utilisateur", MessageBoxButton.OK, MessageBoxImage.Stop);
+                MessageBox.Show(exception.Message, "Erreur innatendue", MessageBoxButton.OK, MessageBoxImage.Stop);
             }
         }
         #endregion
