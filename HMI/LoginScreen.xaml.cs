@@ -60,7 +60,7 @@ namespace HMI
                 else
                 {
                     this.utilisateur = this.utilisateurDao.AvoirUtilisateur(this.usernameTextBox.Text);
-                    if (this.utilisateur == null) throw new ConnexionException("Utilisateur non existant");
+                    if (this.utilisateur == null) throw new ConnexionException("Utilisateur non existant.");
                     else
                     {
                         MainWindow mainWindow = new MainWindow();
@@ -73,6 +73,7 @@ namespace HMI
             catch (Exception exception) 
             {
                 MessageBox.Show(exception.Message, "Erreur innatendue", MessageBoxButton.OK, MessageBoxImage.Stop);
+                this.usernameTextBox.Text = "Nom d'utilisateur";
             }
         }
         #endregion

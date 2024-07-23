@@ -33,24 +33,27 @@ namespace Network
         public Utilisateur? AvoirUtilisateur(string login)
         {
             Utilisateur? utilisateur = null;
-            using (SQLiteConnection connection = this._database.Connection)
-            {
-                using (SQLiteCommand command = connection.CreateCommand())
-                {
-                    command.CommandText = "SELECT * FROM Utilisateur WHERE NomUtilisateur = @login";
-                    command.Parameters.Add(new SQLiteParameter("@login", login));
-                    command.ExecuteNonQuery();
+            SQLiteConnection connection = this._database.Connection;
 
-                    using (SQLiteDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.HasRows)
+            connection.Open();
+            using (SQLiteCommand command = connection.CreateCommand())
+            {
+                command.CommandText = "SELECT * FROM Utilisateur WHERE NomUtilisateur = @login";
+                command.Parameters.Add(new SQLiteParameter("@login", login));
+                command.ExecuteNonQuery();
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                   if (reader.HasRows == true)
+                   {
+                        while (reader.Read())
                         {
-                            utilisateur = new Utilisateur(reader.GetString(1),reader.GetInt32(0));
+                            utilisateur = new Utilisateur(reader.GetString(1), reader.GetInt32(0));
                         }
-                    }
+                   }
                 }
             }
-            this._database.Connection.Close();
+            connection.Close();
             return utilisateur;
         }
         #endregion

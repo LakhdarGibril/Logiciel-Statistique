@@ -33,7 +33,7 @@ namespace Network
         /// <author>Lakhdar Gibril</author>
         public Database() 
         {
-            this.connection = new SQLiteConnection($"Data Source=database.db");
+            this.connection = new SQLiteConnection("Data Source=database.db");
         }
         #endregion
     }
